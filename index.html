@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vocabulary Flashcard</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/parakeet/96/book.png">
 </head>
 <body>
     <div class="card-container">
         <div class="card" id="flashcard" onclick="flipCard()">
+           
             <div class="front" id="frontCard">
                 <div id="frontWord"></div>
                 <div id="frontCounter" class="word-counter"></div>
+                <button id="likeButton" onclick="likeWord(event)">Like</button>
             </div>
             <div class="back" id="backCard">
                 <div id="backWord"></div>
@@ -20,9 +22,10 @@
             </div>
         </div>
     </div>
+    
     <div class="button-container">
-        <button class="button" id="prevButton" onclick="getPreviousWord()">คำศัพท์ก่อนหน้า</button>
-        <button class="button" id="nextButton" onclick="getNextWord()">คำศัพท์ถัดไป</button>
+        <button class="button" id="prevButton" onclick="getPreviousWord()"></button>
+        <button class="button" id="nextButton" onclick="getNextWord()"></button>
     </div>
     <script src="script.js"></script>
 </body>
