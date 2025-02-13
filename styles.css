@@ -123,11 +123,7 @@ body {
    
 }
 
-#likeButton:hover {
-    color: #333;
-    background-color: #f0f0f0; /* สีพื้นหลังเมื่อโฮเวอร์ */
-    border-radius: 5px;
-}
+
 
 /* Optional: Add some responsive design adjustments */
 @media (max-width: 400px) {
