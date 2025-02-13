@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Flashcard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card-container">
+        <div class="card" id="flashcard" onclick="flipCard()">
+            <div class="front" id="frontCard">
+                <div id="frontWord"></div>
+                <div id="frontCounter" class="word-counter"></div>
+            </div>
+            <div class="back" id="backCard">
+                <div id="backWord"></div>
+                <div id="backCounter" class="word-counter"></div>
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="button" id="prevButton" onclick="getPreviousWord()">คำศัพท์ก่อนหน้า</button>
+        <button class="button" id="nextButton" onclick="getNextWord()">คำศัพท์ถัดไป</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
