@@ -1,104 +1,138 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
+/* styles.css */
+
+body {
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    justify-content: center;
     align-items: center;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .card-container {
-    width: min(90vw, 400px);
-    height: min(60vh, 300px);
-    perspective: 1000px;
-    margin: 20px auto;
-  }
-  
-  .card {
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0; /* Light gray background */
+}
+
+.card-container {
+    perspective: 1000px; /* For 3D effect */
+    margin-bottom: 20px; /* Space between card and buttons */
+}
+
+.card {
+    width: 300px;
+    height: 400px;
     position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-    cursor: pointer;
-  }
-  
-  .card.flipped {
-    transform: rotateY(180deg);
-  }
-  
-  .front, .back {
+    transition: transform 0.8s;
+    transform-style: preserve-3d; /* Important for 3D transforms */
+    cursor: pointer; /* Indicate clickable card */
+}
+
+.card.flipped {
+    transform: rotateY(180deg); /* Rotate 180 degrees on flip */
+}
+
+.front, .back {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+    backface-visibility: hidden; /* Hide back side when flipped */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: clamp(1rem, 5vw, 2rem);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.front {
+    background-color: #fff; /* White front */
+    color: #333; /* Dark text color */
+}
+
+.back {
+    background-color: #fff; /* Light gray back */
+    color: #333; /* Dark text color */
+    transform: rotateY(180deg); /* Initially rotated to hide */
+}
+
+.word-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.8em;
+    color: #666; /* Gray counter text */
+}
+
+#frontWord, #backWord {
+    font-size: 2em;
     text-align: center;
-    padding: 20px;
-    word-break: break-word;
-  }
-  
-  .front {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .back {
-    background-color: #2196F3;
-    color: white;
-    transform: rotateY(180deg);
-  }
-  
-  .word-counter {
-    font-size: clamp(0.7rem, 2vw, 0.9rem);
-    margin-top: 10px;
-    opacity: 0.9;
-  }
-  
-  .button-container {
+    padding: 20px; /* Add some padding */
+    word-wrap: break-word; /* Prevent overflow */
+}
+
+.button-container {
     display: flex;
-    justify-content: center;
-    gap: clamp(10px, 3vw, 20px);
-    margin-top: 20px;
-    width: 100%;
-    padding: 0 20px;
-  }
-  
-  .button {
-    padding: clamp(8px, 2vw, 15px) clamp(15px, 4vw, 30px);
-    background-color: #f44336;
-    color: white;
+    gap: 10px; /* Space between buttons */
+    width: 300px; /* Make button container same width as card */
+    margin: 0 auto; /* Center the buttons */
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 1em;
     border: none;
     border-radius: 5px;
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text color */
     cursor: pointer;
-    font-size: clamp(0.8rem, 2vw, 1rem);
-    white-space: nowrap;
-  }
-  
-  .button:hover {
-    background-color: #d32f2f;
-  }
-  
-  .button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-  }
-  
-  @media (max-width: 480px) {
-    .card-container {
-      height: 50vh;
+    transition: background-color 0.3s; /* Smooth hover effect */
+    flex: 1; /* Distribute button width equally */
+    font-weight: bold; /* Make the text bold */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}   
+
+.button:hover {
+    background-color: #e0e0e0; /* Light gray on hover */
+}
+
+/* ปรับเครื่องหมาย < และ > */
+#prevButton::before {
+    
+    content: "<";
+}
+
+#nextButton::before {
+    content: ">";
+}
+
+#likeButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px; /* ปรับ padding ให้พอดีกับข้อความ */
+    border: .01em solid #666;
+    border-radius: 5px; /* มุมโค้งของเส้นขอบ */
+    cursor: pointer;
+    font-size: 16px; /* ปรับขนาดตัวอักษรตามต้องการ */
+    color: #666; /* ปรับสีตัวอักษรตามต้องการ */
+    background-color: transparent; /* ทำให้พื้นหลังโปร่งใส */
+    font-size: 0.8em;
+    transition: background-color 0.3s, color 0.3s; /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#likeButton.liked {
+    color: #fff; /* เปลี่ยนสีตัวอักษรเมื่อกด Like แล้ว */
+    background-color: red; /* เปลี่ยนสีเส้นขอบเมื่อกด Like แล้ว */
+    border-color: red;
+}
+
+#likeButton:hover {
+    color: #333;
+    background-color: #f0f0f0; /* สีพื้นหลังเมื่อโฮเวอร์ */
+}
+
+/* Optional: Add some responsive design adjustments */
+@media (max-width: 400px) {
+    .card {
+        width: 90%; /* Make card responsive */
     }
-  }
+}
