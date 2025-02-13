@@ -108,21 +108,17 @@ body {
     top: 10px;
     left: 10px;
     padding: 5px 10px; /* ปรับ padding ให้พอดีกับข้อความ */
-    border: .01em solid #666;
-    border-radius: 5px; /* มุมโค้งของเส้นขอบ */
     cursor: pointer;
     font-size: 16px; /* ปรับขนาดตัวอักษรตามต้องการ */
     color: #666; /* ปรับสีตัวอักษรตามต้องการ */
     background-color: transparent; /* ทำให้พื้นหลังโปร่งใส */
     font-size: 0.8em;
-    transition: background-color 0.3s, color 0.3s; /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s, color 0.3s; /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */   
 }
 
 #likeButton.liked {
-    color: #fff; /* เปลี่ยนสีตัวอักษรเมื่อกด Like แล้ว */
-    background-color: red; /* เปลี่ยนสีเส้นขอบเมื่อกด Like แล้ว */
-    border-color: red;
+    color: #red; /* เปลี่ยนสีตัวอักษรเมื่อกด Like แล้ว */
+    
 }
 
 #likeButton:hover {
