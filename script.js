@@ -2,7 +2,7 @@
 const vocabulary = [
     {
         id: 1,
-        english: "apple",
+        english: "apple (n.)",
         thai: "แอปเปิ้ล"
     },
     {
@@ -18,6 +18,7 @@ const vocabulary = [
 ];
 
 let currentIndex = 0;
+let likedWords = {}; // Initialize likedWords as an empty object
 
 function displayWord() {
     const frontWord = document.getElementById('frontWord');
@@ -33,6 +34,7 @@ function displayWord() {
         const counterText = `${currentIndex + 1} / ${vocabulary.length}`;
         frontCounter.textContent = counterText;
         backCounter.textContent = counterText;
+        updateLikeButton(); // อัปเดตสถานะของปุ่ม "Like"
     }
 }
 
@@ -61,8 +63,41 @@ function getNextWord() {
     }
 }
 
-// แสดงคำศัพท์แรกเมื่อโหลดหน้าเว็บ
+function updateLikeButton() {
+    const likeButton = document.getElementById('likeButton');
+    const word = vocabulary[currentIndex];
+    if (likedWords[word.id]) {
+        likeButton.classList.add('liked');
+    } else {
+        likeButton.classList.remove('liked');
+    }
+}
+
+function likeWord(event) {
+    event.stopPropagation(); // หยุดการแพร่กระจายของเหตุการณ์
+
+    const word = vocabulary[currentIndex];
+    const likeButton = document.getElementById('likeButton');
+    if (likedWords[word.id]) {
+        delete likedWords[word.id];
+        likeButton.classList.remove('liked');
+    } else {
+        likedWords[word.id] = true;
+        likeButton.classList.add('liked');
+    }
+
+    // บันทึกข้อมูล likedWords ลงใน Local Storage
+    localStorage.setItem('likedWords', JSON.stringify(likedWords));
+}
+// Load from localStorage on DOMContentLoaded (optional)
 document.addEventListener('DOMContentLoaded', () => {
+    // โหลดข้อมูล likedWords จาก Local Storage
+    const storedLikes = localStorage.getItem('likedWords');
+    if (storedLikes) {
+        likedWords = JSON.parse(storedLikes);
+    }
+
     displayWord();
     updateButtonStates();
+    updateLikeButton(); // อัปเดตสถานะของปุ่ม "Like"
 });
