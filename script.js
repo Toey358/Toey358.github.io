@@ -179,7 +179,7 @@ const vocabulary = [
         id: 36,
         english: "involve (v.)",
         thai: "เกี่ยวข้อง,พัวพัน"
-    },
+    }
     
 ];
 
