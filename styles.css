@@ -109,21 +109,24 @@ body {
     left: 10px;
     padding: 5px 10px; /* ปรับ padding ให้พอดีกับข้อความ */
     cursor: pointer;
+    border: none;
     font-size: 16px; /* ปรับขนาดตัวอักษรตามต้องการ */
     color: #666; /* ปรับสีตัวอักษรตามต้องการ */
     background-color: transparent; /* ทำให้พื้นหลังโปร่งใส */
     font-size: 0.8em;
-    transition: background-color 0.3s, color 0.3s; /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */   
+    transition: background-color 0.3s, color 0.3s; /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
+    
 }
 
 #likeButton.liked {
-    color: #red; /* เปลี่ยนสีตัวอักษรเมื่อกด Like แล้ว */
-    
+    color: red; /* เปลี่ยนสีตัวอักษรเมื่อกด Like แล้ว */
+   
 }
 
 #likeButton:hover {
     color: #333;
     background-color: #f0f0f0; /* สีพื้นหลังเมื่อโฮเวอร์ */
+    border-radius: 5px;
 }
 
 /* Optional: Add some responsive design adjustments */
