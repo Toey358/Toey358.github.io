@@ -1,52 +1,64 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Embedded Web App</title>
-  <meta name="theme-color" content="#2563eb" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Safety Sarabun</title>
+    <meta name="theme-color" content="#2563eb" />
 
-  <!-- Web Manifest -->
-  <link rel="manifest" href="manifest.webmanifest">
+    <link rel="manifest" href="manifest.webmanifest">
 
-  <!-- Icons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="icons8-document-pulsar-gradient-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="icons8-document-pulsar-gradient-32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="icons8-document-pulsar-gradient-96.png">
-  <link rel="apple-touch-icon" sizes="57x57" href="icons8-document-pulsar-gradient-57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="icons8-document-pulsar-gradient-60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="icons8-document-pulsar-gradient-72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="icons8-document-pulsar-gradient-76.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons8-document-pulsar-gradient-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons8-document-pulsar-gradient-32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons8-document-pulsar-gradient-96.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="icons8-document-pulsar-gradient-57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons8-document-pulsar-gradient-60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons8-document-pulsar-gradient-72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons8-document-pulsar-gradient-76.png">
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background-color: #2563eb;
-      height: 100%;
-      overflow: hidden;
-      -webkit-overflow-scrolling: touch;
-    }
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #2563eb;
+            height: 100%;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
 
-    iframe {
-      width: 100vw;
-      height: 100vh;
-      border: none;
-      display: block;
-    }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+            display: block;
+        }
 
-    /* iOS-safe: hide scrollbars or browser bars */
-    body {
-      padding-top: env(safe-area-inset-top);
-      padding-bottom: env(safe-area-inset-bottom);
-    }
-  </style>
+        /* iOS-safe: hide scrollbars or browser bars */
+        body {
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
 </head>
 <body>
-  <iframe 
-    src="https://script.google.com/macros/s/AKfycbzsLslDfw-bCL9MvXYaZGMyPvVwishfZJxQGhaZn4C9PLQ4Et7IPTpH5NnzPq_qN-tw/exec" 
-    allowfullscreen 
-    loading="lazy">
-  </iframe>
+    <iframe
+        src="https://script.google.com/macros/s/AKfycbzsLslDfw-bCL9MvXYaZGMyPvVwishfZJxQGhaZn4C9PLQ4Et7IPTpH5NnzPq_qN-tw/exec"
+        allowfullscreen
+        loading="lazy">
+    </iframe>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js') // เปลี่ยน '/service-worker.js' เป็นพาธที่ถูกต้องของไฟล์ Service Worker
+                    .then((registration) => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.error('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
