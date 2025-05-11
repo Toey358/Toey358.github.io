@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Embedded Web App</title>
-    <meta name="theme-color" content="#2563eb" /> <link rel="manifest" href="manifest.webmanifest">
+    <title>Safety Sarabun</title>
+    <meta name="theme-color" content="#2563eb" />
+
+    <link rel="manifest" href="manifest.webmanifest">
 
     <link rel="icon" type="image/png" sizes="16x16" href="icons8-document-pulsar-gradient-16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons8-document-pulsar-gradient-32.png">
@@ -24,26 +26,68 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        iframe {
-            width: 100vw;
-            height: 100vh;
-            border: none;
-            display: block;
-        }
-
-        /* iOS-safe: hide scrollbars or browser bars */
         body {
             padding-top: env(safe-area-inset-top);
             padding-bottom: env(safe-area-inset-bottom);
+            font-family: sans-serif; /* เพิ่ม font พื้นฐาน */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-header {
+            position: fixed;
+            top: env(safe-area-inset-top);
+            left: 0;
+            right: 0;
+            height: 56px; /* กำหนดความสูง Navbar */
+            background-color: #2563eb;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+            z-index: 100;
+        }
+
+        .app-header h1 {
+            font-size: 1.2rem;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .app-header button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .iframe-container {
+            flex-grow: 1;
+            margin-top: calc(env(safe-area-inset-top) + 56px); /* เว้นที่ด้านบน */
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <iframe
-        src="https://script.google.com/macros/s/AKfycbzsLslDfw-bCL9MvXYaZGMyPvVwishfZJxQGhaZn4C9PLQ4Et7IPTpH5NnzPq_qN-tw/exec"
-        allowfullscreen
-        loading="lazy">
-    </iframe>
+    <div class="app-header">
+        <h1>SAFETY SARABUN</h1>
+        <button>☰</button> </div>
+
+    <div class="iframe-container">
+        <iframe
+            src="https://script.google.com/macros/s/AKfycbzsLslDfw-bCL9MvXYaZGMyPvVwishfZJxQGhaZn4C9PLQ4Et7IPTpH5NnzPq_qN-tw/exec"
+            allowfullscreen
+            loading="lazy">
+        </iframe>
+    </div>
 
     <script>
         if ('serviceWorker' in navigator) {
