@@ -1,25 +1,25 @@
 {
-  "name": "Embedded Web App",
-  "short_name": "WebApp",
-  "start_url": ".",
-  "display": "standalone",
-  "background_color": "#2563eb",
-  "theme_color": "#2563eb",
-  "icons": [
-    {
-      "src": "icons8-document-pulsar-gradient-96.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "icons8-document-pulsar-gradient-32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "icons8-document-pulsar-gradient-16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    }
-  ]
+    "name": "Embedded Web App",
+    "short_name": "Safety Sarabun",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#2563eb",
+    "theme_color": "#2563eb",
+    "icons": [
+        {
+            "src": "icons8-document-pulsar-gradient-96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "icons8-document-pulsar-gradient-32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "icons8-document-pulsar-gradient-16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        }
+    ]
 }
